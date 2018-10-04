@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+    <Folder Include="ActionModels\" />
+    <Folder Include="Data\" />
+    <Folder Include="Data\Factories\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Views\House\" />
+    <Folder Include="ActionModels\House\" />
+    <Folder Include="ViewModels\House\" />
+    <Folder Include="ResponseModels\" />
+    <Folder Include="ActionModels\HouseApi\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="ViewModels\HouseViewModel.cs" />
+    <Compile Remove="ActionModels\HouseActionModel.cs" />
+  </ItemGroup>
+</Project>

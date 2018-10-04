@@ -1,0 +1,15 @@
+﻿@model house.ViewModels.House.IndexViewModel
+@{
+    ViewBag.Title = "Houses";
+}
+<h3>House.Index</h3>
+
+
+@foreach (var house in Model.Houses)
+{
+    <p>@house.Id</p>
+    <p>@house.Zip</p>
+    <a asp-route="House.Edit" asp-route-id="@house.Id">Edit</a><br />
+    <a asp-route="House.Delete" asp-route-id="@house.Id">Delete</a>
+    <br />
+}
