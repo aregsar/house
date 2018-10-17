@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace house.Controllers
 {
+    [ApiController]
     public class HouseApiController : ControllerBase
     {
 
@@ -40,11 +41,8 @@ namespace house.Controllers
         }
 
        
-        public IActionResult Post([FromBody]CreateActionModel postData)
+        public IActionResult Post(CreateActionModel postData)
         {
-            if (!ModelState.IsValid)
-                return BadRequest();
-
             House house = postData.MapToHouse();
 
             _houseRepository.Add(house);
@@ -55,11 +53,8 @@ namespace house.Controllers
         }
             
 
-        public IActionResult Put([FromBody]UpdateActionModel putData)
+        public IActionResult Put(UpdateActionModel putData)
         {
-            if (!ModelState.IsValid)
-                return BadRequest();
-
             House attachedHouse = _houseRepository.House(putData.Id);
             
             if (attachedHouse == null)
