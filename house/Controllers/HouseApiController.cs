@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace house.Controllers
 {
-    public class HouseApiController : Controller
+    public class HouseApiController : ControllerBase
     {
 
         private readonly HouseRepository _houseRepository;
@@ -48,9 +48,9 @@ namespace house.Controllers
             House house = postData.MapToHouse();
 
             _houseRepository.Add(house);
-
-            return Created(Url.Action("Index")
-                           , new HouseResponseModel(house));
+                           
+            return CreatedAtAction(nameof(Show),
+                                new { id = house.Id }, new HouseResponseModel(house));
 
         }
             
@@ -61,6 +61,7 @@ namespace house.Controllers
                 return BadRequest();
 
             House attachedHouse = _houseRepository.House(putData.Id);
+            
             if (attachedHouse == null)
                 return NotFound();
 
@@ -77,6 +78,7 @@ namespace house.Controllers
         public IActionResult Delete(int id)
         {
             House attachedHouse = _houseRepository.House(id);
+            
             if (attachedHouse == null)
                 return NotFound();
 
