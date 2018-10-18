@@ -46,7 +46,7 @@ namespace house
 
             routes.Post("/api/house", "HouseApi.Post");
 
-            routes.Put("/api/house/{id:int}", "HouseApi.Put");
+            routes.Put("/api/house", "HouseApi.Put");
 
             routes.Delete("/api/house/{id:int}", "HouseApi.Delete");
 
