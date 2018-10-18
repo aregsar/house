@@ -10,7 +10,7 @@ namespace house
     public class Routes
     {
 
-        //Maps routes Globally in one place. Use this if you don't fancy attribute routing!
+        //Maps routes Globally in one place. Use this if you don't fancy attribute routing for MVC routes!
         public static void BuildRoutes(IRouteBuilder routes)
         {
             //MVC routes
@@ -36,19 +36,6 @@ namespace house
 
             routes.Post("/house/Destroy", "House.Destroy");
 
-
-
-            //API Routes
-
-            routes.Get("/api/house", "HouseApi.Index");
-
-            routes.Get("/api/house/{id:int}", "HouseApi.Show");
-
-            routes.Post("/api/house", "HouseApi.Post");
-
-            routes.Put("/api/house", "HouseApi.Put");
-
-            routes.Delete("/api/house/{id:int}", "HouseApi.Delete");
 
             routes.CatchAll(controller: "Home", action: "Error");
 

@@ -11833,11 +11833,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/aregsarkissian/projects/aspnet/house/house/house.csproj",
+      "projectUniqueName": "/Users/aregsarkissian/projects/aspnet2/house/house/house.csproj",
       "projectName": "house",
-      "projectPath": "/Users/aregsarkissian/projects/aspnet/house/house/house.csproj",
+      "projectPath": "/Users/aregsarkissian/projects/aspnet2/house/house/house.csproj",
       "packagesPath": "/Users/aregsarkissian/.nuget/packages/",
-      "outputPath": "/Users/aregsarkissian/projects/aspnet/house/house/obj",
+      "outputPath": "/Users/aregsarkissian/projects/aspnet2/house/house/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

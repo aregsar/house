@@ -10,7 +10,9 @@ using Microsoft.Extensions.Logging;
 
 namespace house.Controllers
 {
+
     [ApiController]
+    [Route("[controller]")]
     public class HouseApiController : ControllerBase
     {
 
@@ -24,23 +26,24 @@ namespace house.Controllers
             _logger = logger;
         }
 
+        [HttpGet("")]
         public IActionResult Index()
         {
             return Ok( _houseRepository.Houses().Select(house => new HouseResponseModel(house)) );       
         }
 
-
+        [HttpGet("{id:int}")]
         public IActionResult Show(int id)
         {
             var house = _houseRepository.House(id);
 
-            if (house != null) 
+            if (house == null) 
                 return NotFound();
 
             return Ok(new HouseResponseModel(house));
         }
 
-       
+        [HttpPost("")]
         public IActionResult Post(CreateActionModel postData)
         {
             House house = postData.MapToHouse();
@@ -51,8 +54,8 @@ namespace house.Controllers
                                 new { id = house.Id }, new HouseResponseModel(house));
 
         }
-            
 
+        [HttpPut("")]
         public IActionResult Put(UpdateActionModel putData)
         {
             House attachedHouse = _houseRepository.House(putData.Id);
@@ -69,7 +72,7 @@ namespace house.Controllers
             return NoContent();
         }
 
-     
+        [HttpDelete("{id:int}")]
         public IActionResult Delete(int id)
         {
             House attachedHouse = _houseRepository.House(id);

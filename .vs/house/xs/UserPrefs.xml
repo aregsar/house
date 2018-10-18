@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{3D0CCC65-9AB9-42B2-B492-C0BEC34337A5}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="house/ResponseModels/HouseResponseModel.cs">
+    <Files>
+      <File FileName="house/Controllers/HouseApiController.cs" Line="32" Column="1" />
+      <File FileName="house/Routes.cs" Line="51" Column="42" />
+      <File FileName="house/ResponseModels/HouseResponseModel.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.house PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
