@@ -7,6 +7,7 @@ using house.Data;
 using house.ResponseModels;
 using house.ActionModels.HouseApi;
 using Microsoft.Extensions.Logging;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace house.Controllers
 {
@@ -25,6 +26,7 @@ namespace house.Controllers
             _houseRepository = houseRepository;
             _logger = logger;
         }
+
 
         [HttpGet("")]
         public IActionResult Index()

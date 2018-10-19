@@ -60,7 +60,7 @@ namespace house.Helpers
         public static void Patch(this IRouteBuilder routes
                                , string url
                                , string endpoint
-                               , string routeName) => MapWithRouteName(routes, url, routeName, endpoint, "Patch");
+                               , string routeName) => MapWithRouteName(routes, url, routeName, endpoint, "PATCH");
 
 
         public static void CatchAll(this IRouteBuilder routes

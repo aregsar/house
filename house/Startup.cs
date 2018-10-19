@@ -58,6 +58,7 @@ namespace house
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                //UseGlobalExceptionHandler(app);
             }
             else
             {
