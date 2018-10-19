@@ -17,16 +17,23 @@ namespace house
         {
             var host = new WebHostBuilder()
                 .ConfigureAppConfiguration((hostingContext, configurationBuilder) => {
+
                     configurationBuilder.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath);
+
                     configurationBuilder.AddJsonFile("appsettings.json"
                                                      , optional: false
                                                      , reloadOnChange: true)
                                         .AddEnvironmentVariables();
                 })
                 .ConfigureLogging((hostingContext, loggingBuilder) => {
+                    
                     loggingBuilder.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
-                    loggingBuilder.AddConsole();
-                    loggingBuilder.AddDebug();
+
+                    if(hostingContext.HostingEnvironment.IsDevelopment())
+                    {
+                        loggingBuilder.AddConsole();
+                        loggingBuilder.AddDebug();
+                    }
                 })
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
