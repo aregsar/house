@@ -39,6 +39,7 @@
 /Users/aregsarkissian/projects/aspnet2/house/house/bin/Debug/netcoreapp2.1/house.pdb
 /Users/aregsarkissian/projects/aspnet2/house/house/bin/Debug/netcoreapp2.1/house.Views.dll
 /Users/aregsarkissian/projects/aspnet2/house/house/bin/Debug/netcoreapp2.1/house.Views.pdb
+/Users/aregsarkissian/projects/aspnet2/house/house/obj/Debug/netcoreapp2.1/house.csprojAssemblyReference.cache
 /Users/aregsarkissian/projects/aspnet2/house/house/obj/Debug/netcoreapp2.1/house.csproj.CoreCompileInputs.cache
 /Users/aregsarkissian/projects/aspnet2/house/house/obj/Debug/netcoreapp2.1/house.RazorAssemblyInfo.cache
 /Users/aregsarkissian/projects/aspnet2/house/house/obj/Debug/netcoreapp2.1/house.RazorAssemblyInfo.cs

@@ -1,4 +1,9 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using System.Threading.Tasks;
+using System.Linq;
+using System.Text;
+using System.Net;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -6,16 +11,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Diagnostics;
-using house.Data;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Headers;
-using System.Text;
-using System.Net;
 using Newtonsoft.Json;
-using System;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Primitives;
-using System.Linq;
+using house.Data;
+
 
 namespace house
 {
@@ -46,7 +45,12 @@ namespace house
             services.AddScoped<HouseRepository, HouseRepository>();
 
             services.AddMvc()
-                    .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+                    .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                    .AddJsonOptions(options =>
+                    {
+                        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                    });
+           
         }
 
 
@@ -70,13 +74,14 @@ namespace house
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseMvc(Routes.BuildRoutes);     
+            app.UseMvc(Routes.BuildRoutes);  
+
         }
 
         //this method will globally handle logging unhandled execptions 
         //it will respond json response for api an ajax calls that use json accept header
         //otherwise it will redirect to error page
-        public void UseGlobalExceptionHandler(IApplicationBuilder app)
+        private void UseGlobalExceptionHandler(IApplicationBuilder app)
         {
             app.UseExceptionHandler(appBuilder =>
             {
