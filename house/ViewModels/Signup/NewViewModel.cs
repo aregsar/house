@@ -9,14 +9,15 @@ namespace house.ViewModels.Signup
         public class SignupViewModel
         {
             [Required]
-            [MaxLength(50,ErrorMessage = "Maximumn 50 characters allowed")]
+            //[MaxLength(50,ErrorMessage = "Maximumn 50 characters allowed")]
             public string Name { get; set; }
 
             [Required]
-            [EmailAddress]
+            //[EmailAddress]
             public string Email { get; set; }
 
-            [Required][MinLength(8,ErrorMessage = "Password requires at least 8 characters")]
+            [Required]
+            //[MinLength(8,ErrorMessage = "Password requires at least 8 characters")]
             public string Password { get; set; }
         }
 

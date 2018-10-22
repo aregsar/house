@@ -24,6 +24,10 @@
     <Folder Include="ActionModels\HouseApi\" />
     <Folder Include="Views\Signup\" />
     <Folder Include="ViewModels\Signup\" />
+    <Folder Include="Views\Signin\" />
+    <Folder Include="ViewModels\Signin\" />
+    <Folder Include="ActionModels\Signin\" />
+    <Folder Include="ActionModels\Signup\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="ViewModels\HouseViewModel.cs" />

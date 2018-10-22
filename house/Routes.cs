@@ -19,6 +19,8 @@ namespace house
             routes.Get("/", "Home.Index");
                
             routes.Get("/Home/Error", "Home.Error");
+
+
            
             routes.Get("/house/index", "House.Index");
 
@@ -40,6 +42,15 @@ namespace house
             routes.Get("/signup/new", "Signup.New");
 
             routes.Post("/signup/create", "Signup.Create");
+
+
+
+            routes.Get("/signin/new", "Signin.New");
+
+            routes.Post("/signin/create", "Signin.Create");
+
+            routes.Post("/signin/Remove", "Signin.Remove");
+
 
 
             routes.CatchAll(controller: "Home", action: "Error");

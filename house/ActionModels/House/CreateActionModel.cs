@@ -32,8 +32,7 @@ namespace house.ActionModels.House
             {
                 return new house.Data.House() { Zip = Zip };
             }
-
-         
+                     
         }
     }
 }

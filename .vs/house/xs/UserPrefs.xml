@@ -1,13 +1,20 @@
 ﻿<Properties StartupConfiguration="{3D0CCC65-9AB9-42B2-B492-C0BEC34337A5}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="house/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="house/Controllers/SigninController.cs">
     <Files>
-      <File FileName="house/Startup.cs" Line="45" Column="53" />
-      <File FileName="house/Program.cs" Line="18" Column="1" />
+      <File FileName="house/Controllers/SignupController.cs" Line="21" Column="1" />
+      <File FileName="house/Controllers/SigninController.cs" Line="20" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/aregsarkissian/projects/aspnet2/house/house/Controllers/SigninController.cs" relfile="house/Controllers/SigninController.cs" line="32" column="32" />
+      <Breakpoint file="/Users/aregsarkissian/projects/aspnet2/house/house/Controllers/SignupController.cs" relfile="house/Controllers/SignupController.cs" line="21" column="1" />
+      <Breakpoint file="/Users/aregsarkissian/projects/aspnet2/house/house/Controllers/SignupController.cs" relfile="house/Controllers/SignupController.cs" line="28" column="1" />
+      <Breakpoint file="/Users/aregsarkissian/projects/aspnet2/house/house/Controllers/SignupController.cs" relfile="house/Controllers/SignupController.cs" line="30" column="1" />
+      <Breakpoint file="/Users/aregsarkissian/projects/aspnet2/house/house/Controllers/SigninController.cs" relfile="house/Controllers/SigninController.cs" line="20" column="1" />
+      <Breakpoint file="/Users/aregsarkissian/projects/aspnet2/house/house/Controllers/SigninController.cs" relfile="house/Controllers/SigninController.cs" line="27" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />

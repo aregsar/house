@@ -1,3 +1,26 @@
-﻿
+﻿@model house.ViewModels.Signup.NewViewModel
 @{
+    ViewBag.Title = "Sign up";
 }
+<h3>Signup.New</h3>
+<form method="post" asp-controller="Signup" asp-action="Create">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="form-group">
+        <label asp-for="SignupForm.Name">Name:</label>
+        <input asp-for="SignupForm.Name" class="form-control" maxlength="100" />
+        <span asp-validation-for="SignupForm.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SignupForm.Email">Email:</label>
+        <input asp-for="SignupForm.Email" class="form-control" maxlength="100" />
+        <span asp-validation-for="SignupForm.Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SignupForm.Password">Password:</label>
+        <input asp-for="SignupForm.Password" type="password" class="form-control" maxlength="250" />
+        <span asp-validation-for="SignupForm.Password" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+    </div>
+</form>

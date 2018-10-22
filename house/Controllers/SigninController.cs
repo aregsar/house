@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using house.ViewModels.Signup;
-using house.ActionModels.Signup;
+using house.ViewModels.Signin;
+using house.ActionModels.Signin;
 
 namespace house.Controllers
 {
-    public class SignupController : Controller
+    public class SigninController : Controller
     {
- 
         public IActionResult New()
         {
             return View(new NewViewModel());
@@ -25,9 +24,12 @@ namespace house.Controllers
                 return View("New", data.MapToNewViewModel());
             }
 
-            TempData.Add("SignupSuccess", "Sign up success");
-
             return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult Remove()
+        {
+            return View("New");
         }
     }
 }
