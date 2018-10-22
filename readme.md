@@ -43,6 +43,8 @@ The model used to bind to form fields can be nested inside a ViewModel property.
 
 8-Logging and configuration configured outside of Startup.cs and injected in.
 
+9-ApiControllers can derive from ControllerBase instead of Controller since they do not need the extra baggage of view template methods. Also ApiControllers decorated with the ApiController attribute require route attributes and do not require manually returning bad request for modelstate errors and do not require specifying FromBody attributes for response body model binding which is defaulted to.
+
 TODO:
 
 This boilerplate development is in progress and I plan to add the following features in the futue:

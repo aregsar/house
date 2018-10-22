@@ -16,34 +16,68 @@ namespace house
         public static void Main(string[] args)
         {
             var host = new WebHostBuilder()
-                .ConfigureAppConfiguration((hostingContext, configurationBuilder) => {
+            .ConfigureAppConfiguration((hostingContext, configurationBuilder) => {
 
-                    configurationBuilder.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath);
+                configurationBuilder.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath);
 
-                    configurationBuilder.AddJsonFile("appsettings.json"
-                                                     , optional: false
-                                                     , reloadOnChange: true)
-                                        .AddEnvironmentVariables();
-                })
-                .ConfigureLogging((hostingContext, loggingBuilder) => {
-                    
-                    loggingBuilder.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
+                configurationBuilder.AddJsonFile("appsettings.json"
+                                                 , optional: false
+                                                 , reloadOnChange: true)
+                                    .AddEnvironmentVariables();
+            })
+            .ConfigureLogging((hostingContext, loggingBuilder) => {
 
-                    if(hostingContext.HostingEnvironment.IsDevelopment())
-                    {
-                        loggingBuilder.AddConsole();
-                        loggingBuilder.AddDebug();
-                    }
-                })
-                .UseKestrel()
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseStartup<Startup>()
-                .Build();
+                loggingBuilder.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
 
-            SeedDatabase(host);
+                if(hostingContext.HostingEnvironment.IsDevelopment())
+                {
+                    loggingBuilder.AddConsole();
+                    loggingBuilder.AddDebug();
+                }
+            })
+            .UseKestrel()
+            .UseContentRoot(Directory.GetCurrentDirectory())
+            .UseStartup<Startup>()
+            .Build();
+
+            //var host = BuildWebHost(args);
+            //var host = CreateWebHostBuilder(args).Build();
+
+            //SeedDatabase(host);
 
             host.Run();
         }
+
+
+        ////By convention set name to BuildWebHost so EF migrations tooling can use to set up DbContext. 
+        //public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        //{
+        //    return new WebHostBuilder()
+        //        .ConfigureAppConfiguration((hostingContext, configurationBuilder) => {
+
+        //            configurationBuilder.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath);
+
+        //            configurationBuilder.AddJsonFile("appsettings.json"
+        //                                             , optional: false
+        //                                             , reloadOnChange: true)
+        //                                .AddEnvironmentVariables();
+        //        })
+        //        .ConfigureLogging((hostingContext, loggingBuilder) => {
+
+        //            loggingBuilder.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
+
+        //            if (hostingContext.HostingEnvironment.IsDevelopment())
+        //            {
+        //                loggingBuilder.AddConsole();
+        //                loggingBuilder.AddDebug();
+        //            }
+        //        })
+        //        .UseKestrel()
+        //        .UseContentRoot(Directory.GetCurrentDirectory())
+        //        .UseStartup<Startup>();
+
+        //}
+
 
 
         private static void SeedDatabase(IWebHost host)
@@ -71,7 +105,7 @@ namespace house
         }
     }
 
-    //for EF migration tooling
+    //for EF migration tooling 
     //https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dbcontext-creation
     //dotnet ef migrations add create_houses_table
     public class HouseContextFactory : IDesignTimeDbContextFactory<HouseDbContext>

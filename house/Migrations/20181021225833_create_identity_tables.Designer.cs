@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using house.Data;
 
 namespace house.Migrations
 {
     [DbContext(typeof(HouseDbContext))]
-    partial class HouseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181021225833_create_identity_tables")]
+    partial class create_identity_tables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

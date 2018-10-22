@@ -37,6 +37,11 @@ namespace house
             routes.Post("/house/Destroy", "House.Destroy");
 
 
+            routes.Get("/signup/new", "Signup.New");
+
+            routes.Post("/signup/create", "Signup.Create");
+
+
             routes.CatchAll(controller: "Home", action: "Error");
 
         }

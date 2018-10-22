@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using house.Data;
+using Microsoft.AspNetCore.Identity;
 
 
 namespace house
@@ -38,11 +39,24 @@ namespace house
 
             _logger.LogDebug($"Default Log Level: {_configuration.GetSection("Logging").GetValue<string>("LogLevel:Default")}");
 
+            services.AddIdentity<AppUser, IdentityRole<int>>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+                options.Password.RequiredLength = 8;
+            }).AddEntityFrameworkStores<HouseDbContext>();
+
 
             services.AddDbContext<HouseDbContext>(options =>
                                                   options.UseSqlite(_configuration.GetConnectionString("House")));
 
             services.AddScoped<HouseRepository, HouseRepository>();
+
+
+            services.AddAuthentication()
+                    .AddCookie(options =>{
+                        options.Cookie.HttpOnly = true;
+                    })
+                    .AddJwtBearer();
 
             services.AddMvc()
                     .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
@@ -62,7 +76,6 @@ namespace house
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                //UseGlobalExceptionHandler(app);
             }
             else
             {
@@ -74,6 +87,8 @@ namespace house
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            //keep UseAuthentication before UseMvc
+            app.UseAuthentication();
             app.UseMvc(Routes.BuildRoutes);  
 
         }

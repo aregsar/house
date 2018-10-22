@@ -22,6 +22,8 @@
     <Folder Include="ViewModels\House\" />
     <Folder Include="ResponseModels\" />
     <Folder Include="ActionModels\HouseApi\" />
+    <Folder Include="Views\Signup\" />
+    <Folder Include="ViewModels\Signup\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="ViewModels\HouseViewModel.cs" />
