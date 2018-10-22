@@ -25,7 +25,7 @@ namespace house.Controllers
                 return View("New", data.MapToNewViewModel());
             }
 
-            TempData.Add("SignupSuccess", "Sign up success");
+            TempData.Add("Flash", "Sign up success");
 
             return RedirectToAction("Index", "Home");
         }

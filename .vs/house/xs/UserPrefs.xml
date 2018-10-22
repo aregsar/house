@@ -1,8 +1,10 @@
 ﻿<Properties StartupConfiguration="{3D0CCC65-9AB9-42B2-B492-C0BEC34337A5}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="house/Controllers/SigninController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="house/Views/Shared/_Layout.cshtml">
     <Files>
-      <File FileName="house/Controllers/SignupController.cs" Line="21" Column="1" />
-      <File FileName="house/Controllers/SigninController.cs" Line="20" Column="1" />
+      <File FileName="house/Controllers/SignupController.cs" Line="28" Column="21" />
+      <File FileName="house/Controllers/SigninController.cs" Line="27" Column="1" />
+      <File FileName="house/Controllers/HomeController.cs" Line="1" Column="1" />
+      <File FileName="house/Views/Shared/_Layout.cshtml" Line="41" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
