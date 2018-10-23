@@ -56,10 +56,10 @@ namespace house.Controllers
                 return View("New", data.MapToNewViewModel(returnUrl));
             }
 
+            if (!Url.IsLocalUrl(returnUrl))
+                return RedirectToAction("Index", "Home");
 
-            //return LocalRedirect(returnUrl);
-
-            return RedirectToAction("Index", "Home");
+            return LocalRedirect(returnUrl);
         }
 
       
