@@ -17,15 +17,15 @@ namespace house.ActionModels.Signup
             //this property name must be the same property name as the nested viewmodel property
 
             [Required]
-            //[MaxLength(50, ErrorMessage = "Maximumn 50 characters allowed")]
+            [MaxLength(50, ErrorMessage = "Maximumn 50 characters allowed")]
             public string Name { get; set; }
 
             [Required]
-            //[EmailAddress]
+            [EmailAddress]
             public string Email { get; set; }
 
             [Required]
-            //[MinLength(8, ErrorMessage = "Password requires at least 8 characters")]
+            [MinLength(8, ErrorMessage = "Password requires at least 8 characters")]
             public string Password { get; set; }
 
         }

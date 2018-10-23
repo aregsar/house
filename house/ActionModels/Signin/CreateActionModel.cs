@@ -17,7 +17,7 @@ namespace house.ActionModels.Signin
             //this property name must be the same property name as the nested viewmodel property
 
             [Required]
-            //[EmailAddress]
+            [EmailAddress]
             public string Email { get; set; }
 
             [Required]
@@ -25,10 +25,23 @@ namespace house.ActionModels.Signin
 
         }
 
-        public NewViewModel MapToNewViewModel()
+        //public NewViewModel MapToNewViewModel()
+        //{
+        //    return new NewViewModel()
+        //    {
+        //        SigninForm = new NewViewModel.SigninViewModel()
+        //        {
+        //            Email = SigninForm.Email,
+        //            Password = String.Empty,
+        //        }
+        //    };
+        //}
+
+        public NewViewModel MapToNewViewModel(string returnUrl)
         {
             return new NewViewModel()
             {
+                ReturnUrl = returnUrl,
                 SigninForm = new NewViewModel.SigninViewModel()
                 {
                     Email = SigninForm.Email,

@@ -15,7 +15,7 @@ using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using house.Data;
 using Microsoft.AspNetCore.Identity;
-
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace house
 {
@@ -39,6 +39,12 @@ namespace house
 
             _logger.LogDebug($"Default Log Level: {_configuration.GetSection("Logging").GetValue<string>("LogLevel:Default")}");
 
+            //services.Configure<CookiePolicyOptions>(options =>
+            //{
+            //    options.CheckConsentNeeded = context => false;
+            //    options.MinimumSameSitePolicy = SameSiteMode.None;
+            //});
+
             services.AddIdentity<AppUser, IdentityRole<int>>(options =>
             {
                 options.User.RequireUniqueEmail = true;
@@ -59,10 +65,24 @@ namespace house
 
             services.AddScoped<HouseRepository, HouseRepository>();
 
+            //services.ConfigureApplicationCookie(options =>
+            //{
+            //    //options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+            //    //options.Cookie.Name = "YourAppCookieName";
+            //    options.Cookie.HttpOnly = true;
+            //    //options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+            //    options.LoginPath = "/Identity/Account/Login";
+            //    options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
+            //    //options.SlidingExpiration = true;
+            //});
+
 
             services.AddAuthentication()
                     .AddCookie(options =>{
                         options.Cookie.HttpOnly = true;
+                        options.LoginPath = "/Signin/New";
+                        options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
+
                     })
                     .AddJwtBearer();
 

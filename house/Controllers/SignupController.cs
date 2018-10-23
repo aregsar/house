@@ -15,12 +15,19 @@ namespace house.Controllers
 
         public IActionResult New()
         {
+            if (User.Identity.IsAuthenticated)
+                return RedirectToAction("Index", "Home");
+
             return View(new NewViewModel());
         }
 
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create( CreateActionModel data
-                                   , [FromServices] UserManager<AppUser> userManager)
+                                               , [FromServices] UserManager<AppUser> userManager)
         {
+            if (User.Identity.IsAuthenticated)
+                return RedirectToAction("Index", "Home");
+
             if (!ModelState.IsValid)
             {
                 ModelState.AddModelError(string.Empty, "There were validation errors");

@@ -31,9 +31,22 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a asp-route="House.Index">Houses</a></li>
-                        <li><a asp-route="House.New">Add House</a></li>
-                        <li><a asp-route="Signup.New">Signup</a></li>
-                        <li><a asp-route="Signin.New">Signin</a></li>
+
+                        @if(!User.Identity.IsAuthenticated)
+                        {
+
+                            <li><a asp-route="Signup.New">Signup</a></li>
+                            <li><a asp-route="Signin.New">Signin</a></li>
+
+                        }
+                        else
+                        {
+                            <li><a asp-route="House.New">Add House</a></li>
+                            <li><form method="post" asp-controller="Signin" asp-action="Remove">
+                                    <button type="submit">Signout</button>
+                                </form>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

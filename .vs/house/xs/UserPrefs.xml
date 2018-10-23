@@ -1,21 +1,31 @@
 ﻿<Properties StartupConfiguration="{3D0CCC65-9AB9-42B2-B492-C0BEC34337A5}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="house/Controllers/SigninController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="house/Views/House/New.cshtml">
     <Files>
-      <File FileName="house/Controllers/SignupController.cs" Line="50" Column="1" />
-      <File FileName="house/Controllers/SigninController.cs" Line="48" Column="1" />
-      <File FileName="house/ActionModels/Signup/CreateActionModel.cs" Line="1" Column="1" />
+      <File FileName="house/Controllers/SignupController.cs" Line="20" Column="13" />
+      <File FileName="house/Controllers/SigninController.cs" Line="28" Column="10" />
+      <File FileName="house/ActionModels/Signup/CreateActionModel.cs" Line="28" Column="13" />
+      <File FileName="house/Views/Signin/New.cshtml" Line="9" Column="29" />
+      <File FileName="house/ActionModels/Signin/CreateActionModel.cs" Line="20" Column="13" />
+      <File FileName="house/ViewModels/Signup/NewViewModel.cs" Line="20" Column="13" />
+      <File FileName="house/ViewModels/Signin/NewViewModel.cs" Line="28" Column="39" />
+      <File FileName="house/Controllers/HomeController.cs" Line="1" Column="1" />
+      <File FileName="house/Controllers/HouseController.cs" Line="107" Column="9" />
+      <File FileName="house/Startup.cs" Line="18" Column="1" />
+      <File FileName="house/ViewModels/House/ShowViewModel.cs" Line="1" Column="1" />
+      <File FileName="house/Views/House/Show.cshtml" Line="11" Column="29" />
+      <File FileName="house/Routes.cs" Line="1" Column="1" />
+      <File FileName="house/Views/Shared/_Layout.cshtml" Line="46" Column="23" />
+      <File FileName="house/Views/House/New.cshtml" Line="7" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/aregsarkissian/projects/aspnet2/house/house/Controllers/SignupController.cs" relfile="house/Controllers/SignupController.cs" line="37" column="1" />
-      <Breakpoint file="/Users/aregsarkissian/projects/aspnet2/house/house/Controllers/SignupController.cs" relfile="house/Controllers/SignupController.cs" line="42" column="1" />
-      <Breakpoint file="/Users/aregsarkissian/projects/aspnet2/house/house/Controllers/SignupController.cs" relfile="house/Controllers/SignupController.cs" line="50" column="1" />
-      <Breakpoint file="/Users/aregsarkissian/projects/aspnet2/house/house/Controllers/SigninController.cs" relfile="house/Controllers/SigninController.cs" line="29" column="1" />
-      <Breakpoint file="/Users/aregsarkissian/projects/aspnet2/house/house/Controllers/SigninController.cs" relfile="house/Controllers/SigninController.cs" line="36" column="1" />
-      <Breakpoint file="/Users/aregsarkissian/projects/aspnet2/house/house/Controllers/SigninController.cs" relfile="house/Controllers/SigninController.cs" line="48" column="1" />
-      <Breakpoint file="/Users/aregsarkissian/projects/aspnet2/house/house/Controllers/SigninController.cs" relfile="house/Controllers/SigninController.cs" line="43" column="1" />
+      <Breakpoint file="/Users/aregsarkissian/projects/aspnet2/house/house/Controllers/SignupController.cs" relfile="house/Controllers/SignupController.cs" line="44" column="1" />
+      <Breakpoint file="/Users/aregsarkissian/projects/aspnet2/house/house/Controllers/SignupController.cs" relfile="house/Controllers/SignupController.cs" line="49" column="1" />
+      <Breakpoint file="/Users/aregsarkissian/projects/aspnet2/house/house/Controllers/SignupController.cs" relfile="house/Controllers/SignupController.cs" line="57" column="1" />
+      <Breakpoint file="/Users/aregsarkissian/projects/aspnet2/house/house/Controllers/SigninController.cs" relfile="house/Controllers/SigninController.cs" line="62" column="1" />
+      <Breakpoint file="/Users/aregsarkissian/projects/aspnet2/house/house/Controllers/SigninController.cs" relfile="house/Controllers/SigninController.cs" line="52" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

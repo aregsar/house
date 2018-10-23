@@ -7,6 +7,7 @@ using house.Data;
 using house.ViewModels.House;
 using house.ActionModels.House;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authorization;
 
 namespace house.Controllers
 {
@@ -36,12 +37,13 @@ namespace house.Controllers
             return View(new ShowViewModel(house));
         }
 
+        [Authorize]
         public IActionResult New()
         {
             return View(new NewViewModel());
         }
 
-
+        [Authorize]
         public IActionResult Create(CreateActionModel data
                                     , [FromServices]HouseRepository repo)
         {           
@@ -59,6 +61,7 @@ namespace house.Controllers
             return RedirectToAction("Show", new { house.Id });
         }
 
+        [Authorize]
         public IActionResult Edit(int id
                                   , [FromServices]HouseRepository repo)
         {
@@ -72,6 +75,7 @@ namespace house.Controllers
 
         }
 
+        [Authorize]
         public IActionResult Update(UpdateActionModel data
                                     , [FromServices]HouseRepository repo)
         {
@@ -95,11 +99,13 @@ namespace house.Controllers
             return RedirectToAction("Show", new { house.Id });
         }
 
+        [Authorize]
         public IActionResult Delete(int id)
         {
             return View(id);
         }
 
+        [Authorize]
         public IActionResult Destroy(int id
                                      , [FromServices]HouseRepository repo)
         {

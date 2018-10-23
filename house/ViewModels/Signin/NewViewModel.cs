@@ -5,12 +5,14 @@ namespace house.ViewModels.Signin
 
     public class NewViewModel
     {
+        public string ReturnUrl { get; set; } 
+
         public SigninViewModel SigninForm { get; set; }
 
         public class SigninViewModel
         {
             [Required]
-            //[EmailAddress]
+            [EmailAddress]
             public string Email { get; set; }
 
             [Required]
@@ -18,6 +20,13 @@ namespace house.ViewModels.Signin
         }
 
         public NewViewModel() => SigninForm = new SigninViewModel();
+
+        public NewViewModel(string returnUrlPath)
+        {
+            SigninForm = new SigninViewModel();
+
+            ReturnUrl = returnUrlPath;
+        }
     }
 
 
