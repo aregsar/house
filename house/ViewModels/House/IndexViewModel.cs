@@ -12,12 +12,17 @@ namespace house.ViewModels.House
         public class HomeViewModel
         {
             public int Id { get; set; }
+
             public string Zip { get; set; }
+
+            public string Address { get; set; }
+
 
             public HomeViewModel(house.Data.House house)
             {
                 Id = house.Id;
                 Zip = house.Zip;
+                Address = house.Address;
             }
         }
 

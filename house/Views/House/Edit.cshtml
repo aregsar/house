@@ -13,6 +13,11 @@
         <span asp-validation-for="House.Zip" class="text-danger"></span>
     </div>
     <div class="form-group">
+        <label asp-for="House.Address">Street Address:</label>
+        <input asp-for="House.Address" class="form-control" maxlength="200" />
+        <span asp-validation-for="House.Address" class="text-danger"></span>
+    </div>
+    <div class="form-group">
         <button type="submit" class="btn btn-primary btn-lg">Submit</button>
     </div>
 </form>

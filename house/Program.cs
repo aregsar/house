@@ -15,33 +15,7 @@ namespace house
     {
         public static void Main(string[] args)
         {
-            var host = new WebHostBuilder()
-            .ConfigureAppConfiguration((hostingContext, configurationBuilder) => {
-
-                configurationBuilder.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath);
-
-                configurationBuilder.AddJsonFile("appsettings.json"
-                                                 , optional: false
-                                                 , reloadOnChange: true)
-                                    .AddEnvironmentVariables();
-            })
-            .ConfigureLogging((hostingContext, loggingBuilder) => {
-
-                loggingBuilder.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
-
-                if(hostingContext.HostingEnvironment.IsDevelopment())
-                {
-                    loggingBuilder.AddConsole();
-                    loggingBuilder.AddDebug();
-                }
-            })
-            .UseKestrel()
-            .UseContentRoot(Directory.GetCurrentDirectory())
-            .UseStartup<Startup>()
-            .Build();
-
-            //var host = BuildWebHost(args);
-            //var host = CreateWebHostBuilder(args).Build();
+            var host = CreateWebHostBuilder(args).Build();
 
             //SeedDatabase(host);
 
@@ -49,34 +23,34 @@ namespace house
         }
 
 
-        ////By convention set name to BuildWebHost so EF migrations tooling can use to set up DbContext. 
-        //public static IWebHostBuilder CreateWebHostBuilder(string[] args)
-        //{
-        //    return new WebHostBuilder()
-        //        .ConfigureAppConfiguration((hostingContext, configurationBuilder) => {
+        //By convention set name to BuildWebHost so EF migrations tooling can use to set up DbContext. 
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        {
+            return new WebHostBuilder()
+                        .ConfigureAppConfiguration((hostingContext, configurationBuilder) => {
 
-        //            configurationBuilder.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath);
+                            configurationBuilder.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath);
 
-        //            configurationBuilder.AddJsonFile("appsettings.json"
-        //                                             , optional: false
-        //                                             , reloadOnChange: true)
-        //                                .AddEnvironmentVariables();
-        //        })
-        //        .ConfigureLogging((hostingContext, loggingBuilder) => {
+                            configurationBuilder.AddJsonFile("appsettings.json"
+                                                             , optional: false
+                                                             , reloadOnChange: true)
+                                                .AddEnvironmentVariables();
+                        })
+                        .ConfigureLogging((hostingContext, loggingBuilder) => {
 
-        //            loggingBuilder.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
+                            loggingBuilder.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
 
-        //            if (hostingContext.HostingEnvironment.IsDevelopment())
-        //            {
-        //                loggingBuilder.AddConsole();
-        //                loggingBuilder.AddDebug();
-        //            }
-        //        })
-        //        .UseKestrel()
-        //        .UseContentRoot(Directory.GetCurrentDirectory())
-        //        .UseStartup<Startup>();
+                            if (hostingContext.HostingEnvironment.IsDevelopment())
+                            {
+                                loggingBuilder.AddConsole();
+                                loggingBuilder.AddDebug();
+                            }
+                        })
+                        .UseKestrel()
+                        .UseContentRoot(Directory.GetCurrentDirectory())
+                        .UseStartup<Startup>();
 
-        //}
+        }
 
 
 

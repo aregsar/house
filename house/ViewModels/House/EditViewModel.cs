@@ -14,7 +14,12 @@ namespace house.ViewModels.House
             [RegularExpression(@"^[0-9]*$", ErrorMessage = "Invalid zip code")]
             [StringLength(maximumLength: 5, MinimumLength = 5, ErrorMessage = "requires five digits")]
             public string Zip { get; set; }
-           
+
+
+            [Required]
+            [MaxLength(200)]
+            public string Address { get; set; }
+
         }
 
 
@@ -23,7 +28,8 @@ namespace house.ViewModels.House
             House = new HomeViewModel()
             {
                 Id = updateActionModel.House.Id,
-                Zip = updateActionModel.House.Zip
+                Zip = updateActionModel.House.Zip,
+                Address = updateActionModel.House.Address
             };
         }
 
@@ -31,9 +37,12 @@ namespace house.ViewModels.House
         {
             House = new HomeViewModel(){
                 Id = house.Id,
-                Zip = house.Zip
+                Zip = house.Zip,
+                Address = house.Address
             };
         }
     
     }
 }
+
+

@@ -12,6 +12,10 @@ namespace house.ActionModels.HouseApi
         [StringLength(maximumLength: 5, MinimumLength = 5, ErrorMessage = "requires five digits")]
         public string Zip { get; set; }
 
+        [Required]
+        [MaxLength(200)]
+        public string Address { get; set; }
+
         public house.Data.House MapToHouse()
         {
             return new house.Data.House()

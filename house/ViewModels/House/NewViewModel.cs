@@ -14,6 +14,10 @@ namespace house.ViewModels.House
             [RegularExpression(@"^[0-9]*$", ErrorMessage = "Invalid zip code")]
             [StringLength(maximumLength: 5, MinimumLength = 5, ErrorMessage = "requires five digits")]
             public string Zip { get; set; }
+
+            [Required]
+            [MaxLength(200)]
+            public string Address { get; set; }
         }
 
         public NewViewModel() => House = new HomeViewModel();
