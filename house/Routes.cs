@@ -45,8 +45,8 @@ namespace house
 
 
 
-            //routes.Get("/signin/new", "Signin.New");
-            routes.Get("/Account/Login", "Signin.New");
+            routes.Get("/signin/new", "Signin.New");
+            //routes.Get("/Account/Login", "Signin.New");
 
             routes.Post("/signin/create", "Signin.Create");
 
