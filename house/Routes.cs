@@ -20,7 +20,6 @@ namespace house
                
             routes.Get("/Home/Error", "Home.Error");
 
-
            
             routes.Get("/house/index", "House.Index");
 
@@ -44,9 +43,7 @@ namespace house
             routes.Post("/signup/create", "Signup.Create");
 
 
-
             routes.Get("/signin/new", "Signin.New");
-            //routes.Get("/Account/Login", "Signin.New");
 
             routes.Post("/signin/create", "Signin.Create");
 

@@ -44,6 +44,7 @@ namespace house.Controllers
         }
 
         [Authorize]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(CreateActionModel data
                                     , [FromServices]HouseRepository repo)
         {           
@@ -76,6 +77,7 @@ namespace house.Controllers
         }
 
         [Authorize]
+        [ValidateAntiForgeryToken]
         public IActionResult Update(UpdateActionModel data
                                     , [FromServices]HouseRepository repo)
         {
@@ -106,6 +108,7 @@ namespace house.Controllers
         }
 
         [Authorize]
+        [ValidateAntiForgeryToken]
         public IActionResult Destroy(int id
                                      , [FromServices]HouseRepository repo)
         {

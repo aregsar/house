@@ -63,7 +63,7 @@ using house.Data;
             WriteLiteral("\r\n<h3>House.Delete</h3>\r\n\r\n");
             EndContext();
             BeginContext(83, 256, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bf78715e4770437abeb27f516d1530ca", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a735c6671d4544e4974836c1e567a052", async() => {
                 BeginContext(147, 36, true);
                 WriteLiteral("\r\n    <input type=\"hidden\" name=\"id\"");
                 EndContext();

@@ -6,11 +6,18 @@ using house.Data;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Linq;
+using Microsoft.Extensions.Logging;
 
 namespace house.Controllers
 {
     public class SigninController : Controller
     {
+        private readonly ILogger<SigninController> _logger;
+
+        public SigninController(ILogger<SigninController> logger)
+        {
+            _logger = logger;
+        }
 
         public IActionResult New()
         {
@@ -26,7 +33,7 @@ namespace house.Controllers
 
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create( CreateActionModel data
-                                   , [FromServices] SignInManager<AppUser> _signInManager)
+                                   , [FromServices] SignInManager<AppUser> signInManager)
         {
             if (User.Identity.IsAuthenticated)
                 return RedirectToAction("Index", "Home");
@@ -43,7 +50,7 @@ namespace house.Controllers
                 return View("New", data.MapToNewViewModel(returnUrl));
             }
 
-            var result = await _signInManager.PasswordSignInAsync(data.SigninForm?.Email
+            var result = await signInManager.PasswordSignInAsync(data.SigninForm?.Email
                                                                 , data.SigninForm?.Password
                                                                 , isPersistent: true
                                                                 , lockoutOnFailure: true);
@@ -64,10 +71,10 @@ namespace house.Controllers
             return LocalRedirect(returnUrl);
         }
 
-      
-        public async Task<IActionResult> Remove([FromServices] SignInManager<AppUser> _signInManager)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Remove([FromServices] SignInManager<AppUser> signInManager)
         {
-            await _signInManager.SignOutAsync();
+            await signInManager.SignOutAsync();
 
             return RedirectToAction("Index", "Home");
         }

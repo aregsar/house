@@ -7,11 +7,18 @@ using house.ViewModels.Signup;
 using house.ActionModels.Signup;
 using house.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 
 namespace house.Controllers
 {
     public class SignupController : Controller
     {
+        private readonly ILogger<SignupController> _logger;
+
+        public SignupController(ILogger<SignupController> logger)
+        {
+            _logger = logger;
+        }
 
         public IActionResult New()
         {
