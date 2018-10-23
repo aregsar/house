@@ -25,17 +25,6 @@ namespace house.ActionModels.Signin
 
         }
 
-        //public NewViewModel MapToNewViewModel()
-        //{
-        //    return new NewViewModel()
-        //    {
-        //        SigninForm = new NewViewModel.SigninViewModel()
-        //        {
-        //            Email = SigninForm.Email,
-        //            Password = String.Empty,
-        //        }
-        //    };
-        //}
 
         public NewViewModel MapToNewViewModel(string returnUrl)
         {

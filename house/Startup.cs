@@ -39,12 +39,6 @@ namespace house
 
             _logger.LogDebug($"Default Log Level: {_configuration.GetSection("Logging").GetValue<string>("LogLevel:Default")}");
 
-            //services.Configure<CookiePolicyOptions>(options =>
-            //{
-            //    options.CheckConsentNeeded = context => false;
-            //    options.MinimumSameSitePolicy = SameSiteMode.None;
-            //});
-
             services.AddIdentity<AppUser, IdentityRole<int>>(options =>
             {
                 options.User.RequireUniqueEmail = true;
@@ -58,24 +52,10 @@ namespace house
                 options.Lockout.AllowedForNewUsers = true;
             }).AddEntityFrameworkStores<HouseDbContext>();
 
-
-
             services.AddDbContext<HouseDbContext>(options =>
                                                   options.UseSqlite(_configuration.GetConnectionString("House")));
 
             services.AddScoped<HouseRepository, HouseRepository>();
-
-            //services.ConfigureApplicationCookie(options =>
-            //{
-            //    //options.AccessDeniedPath = "/Identity/Account/AccessDenied";
-            //    //options.Cookie.Name = "YourAppCookieName";
-            //    options.Cookie.HttpOnly = true;
-            //    //options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
-            //    options.LoginPath = "/Identity/Account/Login";
-            //    options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
-            //    //options.SlidingExpiration = true;
-            //});
-
 
             services.AddAuthentication()
                     .AddCookie(options =>{
@@ -91,8 +71,7 @@ namespace house
                     .AddJsonOptions(options =>
                     {
                         options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-                    });
-           
+                    });           
         }
 
 

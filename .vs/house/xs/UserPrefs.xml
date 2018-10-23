@@ -1,14 +1,5 @@
 ﻿<Properties StartupConfiguration="{3D0CCC65-9AB9-42B2-B492-C0BEC34337A5}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="house/Controllers/SigninController.cs">
-    <Files>
-      <File FileName="house/ActionModels/Signin/CreateActionModel.cs" Line="23" Column="23" />
-      <File FileName="house/ViewModels/Signin/NewViewModel.cs" Line="18" Column="23" />
-      <File FileName="house/ViewModels/House/NewViewModel.cs" Line="1" Column="1" />
-      <File FileName="house/ViewModels/Signup/NewViewModel.cs" Line="20" Column="84" />
-      <File FileName="house/Controllers/SigninController.cs" Line="41" Column="1" />
-      <File FileName="house/Controllers/HouseController.cs" Line="40" Column="20" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
