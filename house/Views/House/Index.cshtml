@@ -7,7 +7,9 @@
 
 @foreach (var house in Model.Houses)
 {
-    <p>@house.Id</p>
+    <p>
+        <a asp-route="House.Show" asp-route-id="@house.Id">@house.Id</a><br />
+    </p>
     <p>@house.Zip</p>
     <p>@house.Address</p>
     <a asp-route="House.Edit" asp-route-id="@house.Id">Edit</a><br />
