@@ -43,15 +43,17 @@ namespace house.Controllers
                 return View("New", data.MapToNewViewModel(returnUrl));
             }
 
-  
-            var result = await _signInManager.PasswordSignInAsync( data.SigninForm?.Email
-                                                           , data.SigninForm?.Password
-                                                           , isPersistent: true
-                                                           , lockoutOnFailure: true);
+            var result = await _signInManager.PasswordSignInAsync(data.SigninForm?.Email
+                                                                , data.SigninForm?.Password
+                                                                , isPersistent: true
+                                                                , lockoutOnFailure: true);
 
             if (!result.Succeeded)
             {
-                ModelState.AddModelError(string.Empty, "Invalid login");
+                if(result.IsLockedOut)
+                    ModelState.AddModelError(string.Empty, "Locked out. Wait one minute before trying again");
+                else
+                    ModelState.AddModelError(string.Empty, "Invalid login");
 
                 return View("New", data.MapToNewViewModel(returnUrl));
             }

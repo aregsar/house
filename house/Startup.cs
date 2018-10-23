@@ -32,48 +32,6 @@ namespace house
             _logger = logger;
         }
 
-        // Configure DI container
-        //public void ConfigureServices(IServiceCollection services)
-        //{
-        //    _logger.LogDebug("ConfigureServices");
-
-        //    _logger.LogDebug($"Default Log Level: {_configuration.GetSection("Logging").GetValue<string>("LogLevel:Default")}");
-
-        //    services.AddIdentity<AppUser, IdentityRole<int>>(options =>
-        //    {
-        //        options.User.RequireUniqueEmail = true;
-        //        options.Password.RequiredLength = 8;
-        //        options.Password.RequireDigit = false;
-        //        options.Password.RequireNonAlphanumeric = false;
-        //        options.Password.RequireUppercase = false;
-        //        options.Password.RequireLowercase = false;
-        //        options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
-        //        options.Lockout.MaxFailedAccessAttempts = 5;
-        //        options.Lockout.AllowedForNewUsers = true;
-        //    }).AddEntityFrameworkStores<HouseDbContext>();
-
-        //    services.AddDbContext<HouseDbContext>(options =>
-        //                                          options.UseSqlite(_configuration.GetConnectionString("House")));
-
-        //    services.AddScoped<HouseRepository, HouseRepository>();
-
-        //    services.AddAuthentication()
-        //            .AddCookie(options =>{
-        //                options.Cookie.HttpOnly = true;
-        //                options.LoginPath = "/Signin/New";
-        //                options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
-
-        //            })
-        //            .AddJwtBearer();
-
-        //    services.AddMvc()
-        //            .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-        //            .AddJsonOptions(options =>
-        //            {
-        //                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-        //            });           
-        //}
-
 
         // Configure DI container
         public void ConfigureServices(IServiceCollection services)
@@ -82,43 +40,38 @@ namespace house
 
             _logger.LogDebug($"Default Log Level: {_configuration.GetSection("Logging").GetValue<string>("LogLevel:Default")}");
 
-            services.AddAuthentication()
-                    .AddCookie()
-                    .AddJwtBearer();
-
-            services.AddIdentity<AppUser, IdentityRole<int>>()
-                    .AddEntityFrameworkStores<HouseDbContext>();
-
             services.AddDbContext<HouseDbContext>(options =>
                                                   options.UseSqlite(_configuration.GetConnectionString("House")));
 
             services.AddScoped<HouseRepository, HouseRepository>();
 
+            services.AddIdentity<AppUser, IdentityRole<int>>()
+                    .AddEntityFrameworkStores<HouseDbContext>()
+                    .AddDefaultTokenProviders();
 
             services.Configure<IdentityOptions>(options =>
             {
                 options.User.RequireUniqueEmail = false;
-
                 options.Password.RequireDigit = false;
                 options.Password.RequireLowercase = false;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequiredLength = 6;
-
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
-                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.MaxFailedAccessAttempts = 3;
                 options.Lockout.AllowedForNewUsers = true;
             });
+
+            services.AddAuthentication()
+                      .AddCookie()
+                      .AddJwtBearer();
 
             services.ConfigureApplicationCookie(options =>
             {
                 options.Cookie.HttpOnly = true;         
                 options.LoginPath = "/Signin/New";
                 options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
-                //options.AccessDeniedPath = "/Account/AccessDenied";
             });
-
-
 
             services.AddMvc()
                     .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)

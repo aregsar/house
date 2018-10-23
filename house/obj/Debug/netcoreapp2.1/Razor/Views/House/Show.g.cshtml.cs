@@ -81,7 +81,7 @@ Write(Model.House.Zip);
             WriteLiteral("</p>\r\n\r\n");
             EndContext();
             BeginContext(164, 65, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ef6c1bbfa1d341108d609671e8711987", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "09fd65cf177446538105ccc52ad8afdb", async() => {
                 BeginContext(221, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -116,7 +116,7 @@ Write(Model.House.Zip);
             WriteLiteral("<br />\r\n");
             EndContext();
             BeginContext(237, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3eaa7110cc1c4c2a808ab39ef7934dc2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a862a542e7684ae2bac8548bba957772", async() => {
                 BeginContext(296, 6, true);
                 WriteLiteral("Delete");
                 EndContext();
