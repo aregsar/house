@@ -20,9 +20,9 @@ namespace house.ActionModels.HouseApi
         {
             return new house.Data.House()
             {
-                Id = Id
-                                            ,
-                Zip = Zip
+                Id = Id,
+                Zip = Zip,
+                Address = Address
             };
         }
     }

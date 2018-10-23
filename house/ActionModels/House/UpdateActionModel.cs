@@ -32,7 +32,8 @@ namespace house.ActionModels.House
                 return new house.Data.House()
                 {
                     Id = Id,
-                    Zip = Zip
+                    Zip = Zip,
+                    Address = Address
                 };
             }
         }

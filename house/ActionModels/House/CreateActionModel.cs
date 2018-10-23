@@ -13,7 +13,8 @@ namespace house.ActionModels.House
         {
             return new house.ViewModels.House.NewViewModel() {
                 House = new house.ViewModels.House.NewViewModel.HomeViewModel(){
-                    Zip = House.Zip
+                    Zip = House.Zip,
+                    Address = House.Address
                 }
             };
         }
@@ -35,7 +36,9 @@ namespace house.ActionModels.House
 
             public house.Data.House MapToHouse()
             {
-                return new house.Data.House() { Zip = Zip };
+                return new house.Data.House() { Zip = Zip,
+                                                Address = Address
+                                              };
             }
                      
         }

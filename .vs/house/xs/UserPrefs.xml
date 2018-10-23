@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{3D0CCC65-9AB9-42B2-B492-C0BEC34337A5}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="house/Views/House/New.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="house/Controllers/HouseController.cs">
     <Files>
       <File FileName="house/Controllers/HouseController.cs" Line="40" Column="20" />
       <File FileName="house/Controllers/SigninController.cs" Line="52" Column="14" />
       <File FileName="house/Startup.cs" Line="35" Column="1" />
       <File FileName="house/Routes.cs" Line="49" Column="15" />
       <File FileName="house/Controllers/SignupController.cs" Line="44" Column="1" />
-      <File FileName="house/Program.cs" Line="22" Column="24" />
+      <File FileName="house/Program.cs" Line="24" Column="9" />
       <File FileName="house/Data/House.cs" Line="13" Column="6" />
       <File FileName="house/ViewModels/House/NewViewModel.cs" Line="27" Column="1" />
       <File FileName="house/Data/HouseDbContext.cs" Line="19" Column="7" />
@@ -18,10 +18,11 @@
       <File FileName="house/ActionModels/HouseApi/CreateActionModel.cs" Line="15" Column="44" />
       <File FileName="house/ActionModels/HouseApi/UpdateActionModel.cs" Line="17" Column="44" />
       <File FileName="house/ViewModels/House/ShowViewModel.cs" Line="25" Column="41" />
-      <File FileName="house/Views/House/Show.cshtml" Line="9" Column="22" />
-      <File FileName="house/Views/House/New.cshtml" Line="1" Column="1" />
-      <File FileName="house/Views/House/Edit.cshtml" Line="1" Column="1" />
+      <File FileName="house/Views/House/Show.cshtml" Line="9" Column="1" />
+      <File FileName="house/Views/House/New.cshtml" Line="19" Column="11" />
+      <File FileName="house/Views/House/Edit.cshtml" Line="19" Column="11" />
       <File FileName="house/Views/House/Delete.cshtml" Line="1" Column="1" />
+      <File FileName="house/Controllers/HomeController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

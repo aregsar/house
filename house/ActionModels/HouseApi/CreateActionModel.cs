@@ -17,7 +17,9 @@ namespace house.ActionModels.HouseApi
 
         public house.Data.House MapToHouse()
         {
-            return new house.Data.House() { Zip = Zip };
+            return new house.Data.House() { Zip = Zip,
+                                            Address = Address 
+                                          };
         }
     }
 }
