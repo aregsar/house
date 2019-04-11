@@ -108,8 +108,8 @@ namespace house
         }
 
         //this method will globally handle logging unhandled execptions 
-        //it will respond json response for api an ajax calls that use json accept header
-        //otherwise it will redirect to error page
+        //it will respond json response for ajax calls that use json accept header
+        //otherwise it will redirect to an error page
         private void UseGlobalExceptionHandler(IApplicationBuilder app)
         {
             app.UseExceptionHandler(appBuilder =>
@@ -132,32 +132,29 @@ namespace house
                                                        .Any(t => t.Suffix.Value?.ToUpper() == "JSON"
                                                               || t.SubTypeWithoutSuffix.Value?.ToUpper() == "JSON");
 
+                    context.Response.ContentType = "application/json";
+
+                    var problemDetails = new ProblemDetails
+                    {
+                        Title = "Unexpected error",
+                        Status = statusCode,
+                        Detail = errorDetails,
+                        Instance = Guid.NewGuid().ToString()
+                    };
+
+                    var json = JsonConvert.SerializeObject(problemDetails);
+
+                    _logger.LogError(json);
+
                     if (requiresJsonResponse)
                     {
-                        context.Response.ContentType = "application/json";
-
-                        var problemDetails = new ProblemDetails
-                        {
-                            Title = "Unexpected error",
-                            Status = statusCode,
-                            Detail = errorDetails,
-                            Instance = Guid.NewGuid().ToString()
-                        };
-
-                        var json = JsonConvert.SerializeObject(problemDetails);
-
-                        _logger.LogError(json);
-
                         await context.Response
-                                     .WriteAsync(json, Encoding.UTF8)
-                                     .ConfigureAwait(false);
-
+                                     .WriteAsync(json, Encoding.UTF8);
                     }
                     else
                     {
                         context.Response.Redirect("/Home/Error");
 
-                        //dont really need this, purely for symmetry.
                         await Task.CompletedTask;
                     }
                 });
